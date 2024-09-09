@@ -11,57 +11,88 @@ namespace Geometry
         static readonly string delimiter1 = "\n--------------------------------------------------------------------------------\n";
         static void Main(string[] args)
         {
-            Console.Write("Количество столбцов? ");
-            int cols = Convert.ToInt32(Console.ReadLine());
-            Console.Write("Количество строк? ");
-            int rows = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Введите размер: ");
+            int size = Convert.ToInt32(Console.ReadLine());
+         
+            Console.WriteLine(delimiter1);
+            //0)
+            for (int i = 0; i < size; i++)
+            {
+                for (int j = 0; j < size; j++) { Console.Write("*"); }
+                Console.WriteLine();
+            }
 
             Console.WriteLine(delimiter1);
-
-            for (int i = 0; i < rows; i++)
+            //1)
+            for (int i = 0; i < size; i++)
             {
-                for (int j = 0; j < cols; j++)
+                for (int j = 0; j <= i; j++) { Console.Write("*"); }
+                Console.WriteLine();
+            }
+
+            Console.WriteLine(delimiter1);
+            //2)
+            for (int i = 0; i < size; i++)
+            {
+                for (int j = 0; j < size - i; j++) { Console.Write("*"); }
+                Console.WriteLine();
+            }
+
+            Console.WriteLine(delimiter1);
+            //3)
+            for (int i = 0; i < size; i++)
+            {
+                for (int j = 0; j < size; j++)
                 {
-                    Console.Write("*");
+                    if (j < i) Console.Write(" "); 
+                    else Console.Write("*");
                 }
                 Console.WriteLine();
             }
 
             Console.WriteLine(delimiter1);
-
-            //Console.Write("Количество строк? ");
-            //rows = Convert.ToInt32(Console.ReadLine());
-
-            for (int i = 0; i < rows; i++)
+            //4)
+            for (int i = 0; i < size; i++)
             {
-                for (int j = 0; j <= i; j++)
+                for (int j = 0; j < size; j++)
                 {
-                    Console.Write("*");
+                    if (j < size - i - 1) Console.Write(" ");
+                    else Console.Write("*");
                 }
                 Console.WriteLine();
             }
 
             Console.WriteLine(delimiter1);
-
-            for (int i = 0; i < rows; i++)
+            //5)
+            for (int i = 0; i < size; i++) // верх
             {
-                for (int j = 0; j < cols - i; j++)
-                {
-                    Console.Write("*");
-                }
+                for (int j = 0; j < size - i - 1; j++) { Console.Write(" "); }
+                Console.Write("/");
+                for (int j = 0; j < i * 2; j++) { Console.Write(" "); }
+                Console.Write("\\");
+                Console.WriteLine();
+            }
+            for (int i = size - 1; i >= 0; i--) // низ
+            {
+                for(int j = 0; j < size - i - 1; j++) { Console.Write(" "); }
+                Console.Write("\\");
+                for (int j = 0; j < i * 2; j++) { Console.Write(" "); }
+                Console.Write("/");
                 Console.WriteLine();
             }
 
             Console.WriteLine(delimiter1);
-
-            for (int i = 0; i < rows; i++)
+            //6)
+            for (int i = 0; i < size; i++)
             {
-                for (int j = 0; j < cols; j++)
+                for (int j = 0; j < size; j++)
                 {
-                    Console.Write("*");
+                    if (i % 2 == 0 && j % 2 == 0 || i % 2 == 1 && j % 2 == 1) Console.Write(" +");
+                    else Console.Write(" -");
                 }
                 Console.WriteLine();
             }
+
         }
     }
 }
