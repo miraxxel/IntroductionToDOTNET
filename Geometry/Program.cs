@@ -1,4 +1,5 @@
-﻿using System;
+﻿//#define RHOMBUS1
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -64,22 +65,55 @@ namespace Geometry
 
             Console.WriteLine(delimiter1);
             //5)
+
+#if RHOMBUS1
+//
+            /*for (int i = 0; i < size; i++) // верх
+                {
+                    for (int j = 0; j < size - i - 1; j++) { Console.Write(" "); }
+                    Console.Write("/");
+                    for (int j = 0; j < i * 2; j++) { Console.Write(" "); }
+                    Console.Write("\\");
+                    Console.WriteLine();
+                }
+                for (int i = size - 1; i >= 0; i--) // низ
+                {
+                    for(int j = 0; j < size - i - 1; j++) { Console.Write(" "); }
+                    Console.Write("\\");
+                    for (int j = 0; j < i * 2; j++) { Console.Write(" "); }
+                    Console.Write("/");
+                    Console.WriteLine();
+                }*/
+
             for (int i = 0; i < size; i++) // верх
             {
-                for (int j = 0; j < size - i - 1; j++) { Console.Write(" "); }
+                for (int j = i; j < size; j++) { Console.Write(" "); }
                 Console.Write("/");
-                for (int j = 0; j < i * 2; j++) { Console.Write(" "); }
+                for (int j = 0; j < i; j++) { Console.Write("  "); }
                 Console.Write("\\");
                 Console.WriteLine();
             }
-            for (int i = size - 1; i >= 0; i--) // низ
+            for (int i = 0; i < size; i++) // низ
             {
-                for(int j = 0; j < size - i - 1; j++) { Console.Write(" "); }
+                for (int j = 0; j <= i; j++) { Console.Write(" "); }
                 Console.Write("\\");
-                for (int j = 0; j < i * 2; j++) { Console.Write(" "); }
+                for (int j = i; j < size - 1; j++) { Console.Write("  "); }
                 Console.Write("/");
                 Console.WriteLine();
+            } 
+#endif
+            //     size * 2 - т.к. верх и низ
+            for (int i = 0; i < size * 2; i++)
+            {
+                for (int j = 0; j < size * 2; j++)
+                {
+                    if (i == j - size || j == i - size) Console.Write("\\");
+                    else if (i == size - 1 - j || i - size == size * 2 - 1 - j) Console.Write("/");
+                    else Console.Write(" ");
+                }
+                Console.WriteLine();
             }
+
 
             Console.WriteLine(delimiter1);
             //6)
