@@ -1,4 +1,4 @@
-﻿//#define ARRAYS_1
+﻿#define ARRAYS_1
 #define ARRAYS_2
 #define JAGGED_ARRAYS
 using System;
@@ -46,7 +46,8 @@ namespace Arrays
             // массив является объектом, обладает характеристиками, состояниями и поведениями
             Console.WriteLine($"Сумма эл-ов массива: {arr.Sum()}");
             Console.WriteLine($"Среднее-арифметическое: {arr.Average()}");
-            Console.WriteLine($"Минимальное: {arr.Min()}"); // 45:00:00
+            Console.WriteLine($"Минимальное: {arr.Min()}");
+            Console.WriteLine($"Максимальное: {arr.Max()}"); 
 
 #endif
 
@@ -78,12 +79,12 @@ namespace Arrays
             Console.WriteLine();
             // Cast<int> преобразует многомер. массив в одномер
             Console.WriteLine($"Сумма эл-ов: {i_arr_2.Cast<int>().Sum()}");
-            Console.WriteLine($"Сред. арифмет. эл-ов: {i_arr_2.Cast<int>().Average()}");
+            Console.WriteLine($"Среднее-арифмет. эл-ов: {i_arr_2.Cast<int>().Average()}");
             Console.WriteLine($"Мин: {i_arr_2.Cast<int>().Min()}");
             Console.WriteLine($"Макс: {i_arr_2.Cast<int>().Max()}");
 
 
-            /*foreach ( int i in i_arr_2) // не различ строки
+            /*foreach ( int i in i_arr_2) // не различ. строки
             {
                 Console.WriteLine(i + "\t");
             }*/
@@ -121,7 +122,7 @@ namespace Arrays
                 if (j_arr[i].Max() > max) max = j_arr[i].Max();
             }
             Console.WriteLine($"Сумма эл-ов: {sum}");
-            Console.WriteLine($"Сред.-арифметич. эл-ов: {(double)sum/count}");
+            Console.WriteLine($"Среднее-арифметич. эл-ов: {(double)sum/count}");
             Console.WriteLine($"Мин: {min}");
             Console.WriteLine($"Макс: {max}");
 #endif
