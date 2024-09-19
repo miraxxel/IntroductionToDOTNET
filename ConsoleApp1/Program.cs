@@ -13,16 +13,16 @@ namespace Game
         {
             Console.BufferWidth = Console.WindowWidth;
             Console.BufferHeight = Console.WindowHeight;
-            Console.CursorVisible = false;
+            Console.CursorVisible = true;
 
-            // Генерация случайных чисел:
+            // Генерация случайных чисел (рандомная позиция курсора при запуске):
             Random rand = new Random();
             int x = rand.Next(Console.BufferWidth); // метод Next() возврю случ. число типа 'int'
             int y = rand.Next(Console.BufferHeight);
             Console.WriteLine($"X = {x}, Y = {y}");
             Console.SetCursorPosition(x, y);
             char symbol = (char)2;
-            Console.WriteLine(symbol);
+            Console.Write(symbol);
             //Console.WriteLine((char)2);
             ConsoleKey key;
             do
